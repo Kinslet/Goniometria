@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📐 Goniometria & Trigonometria – Dispensa Divertente</title>
+  <!-- MathJax per LaTeX -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <!-- Google Fonts & stile divertente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(145deg, #f9f0e7 0%, #fce9d8 100%);
+      color: #2e3b4e;
+      padding: 20px 15px 50px;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* decorazioni divertenti di sfondo */
+    body::before {
+      content: "⚪⚫🔵🔴🟡🟢";
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 40px;
+      opacity: 0.1;
+      white-space: nowrap;
+      pointer-events: none;
+      transform: rotate(-15deg);
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at 70% 80%, #ffdab9, transparent 70%);
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px 48px 40px 40px;
+      box-shadow: 0 25px 40px -10px rgba(0, 20, 30, 0.2),
+                  0 8px 20px rgba(210, 120, 60, 0.1);
+      padding: 30px 35px;
+      border: 1px solid rgba(255, 245, 235, 0.6);
+      position: relative;
+      z-index: 2;
+      transition: all 0.2s ease;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #1e3c4f;
+      text-shadow: 4px 4px 0 #fdd5b5;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    h1 span {
+      background: #ffb082;
+      padding: 8px 25px;
+      border-radius: 60px;
+      font-size: 1.6rem;
+      color: #1f2e3b;
+      box-shadow: inset 0 -3px 0 #b45f2b;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 6px dotted #ffaa7a;
+      color: #1e4a5f;
+      display: inline-block;
+      font-weight: 650;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #2f5e74;
+      margin: 25px 0 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card {
+      background: #ffffffd9;
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 25px 28px;
+      margin: 25px 0;
+      box-shadow: 0 10px 18px -6px rgba(70, 40, 20, 0.12);
+      border: 1px solid #ffe1c6;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.002);
+      box-shadow: 0 15px 25px -8px #cb9c7a55;
+    }
+
+    .fun-fact {
+      background: #fde6d2;
+      border-left: 12px solid #f09b5e;
+      padding: 16px 22px;
+      border-radius: 30px 18px 18px 30px;
+      font-weight: 500;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      margin: 25px 0;
+      font-size: 1.1rem;
+    }
+
+    th {
+      background: #fec89a;
+      color: #1e3c4f;
+      font-weight: 700;
+      padding: 15px 8px;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 20px 20px 8px 8px;
+      border-bottom: 4px solid #d48c5b;
+    }
+
+    td {
+      background: #fef7f0;
+      padding: 12px 8px;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: 0 4px 6px #eacfbc33;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+
+    tr:hover td {
+      background: #ffe4ce;
+    }
+
+    .table-highlight {
+      background: #ffdbb5;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e26b2e;
+      color: white;
+      border-radius: 40px;
+      padding: 4px 14px;
+      font-size: 0.9rem;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+
+    .note {
+      background: #ffeac1;
+      border-radius: 24px;
+      padding: 18px 25px;
+      margin: 25px 0;
+      border: 2px dashed #d49b6a;
+      font-weight: 500;
+    }
+
+    .pill {
+      background: #3a6b7e;
+      color: #fef9f2;
+      padding: 6px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .columns-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 20px 18px;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .columns-2 {
+        grid-template-columns: 1fr;
+      }
+      table {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Emoji decorative */
+    .emoji-big {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* Blocco formule in evidenza */
+    .formula-box {
+      background: #2e4a5e15;
+      border-radius: 28px;
+      padding: 20px 25px;
+      margin: 20px 0;
+      border: 2px solid #f1b689;
+      font-size: 1.2rem;
+    }
+
+    .signature {
+      margin-top: 40px;
+      text-align: right;
+      font-style: italic;
+      color: #5e4130;
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      height: 3px;
+      background: linear-gradient(to right, #fec89a, #ffe3ca, #fec89a);
+      margin: 30px 0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  
+  <!-- TITOLO DIVERTENTE -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <h1>
+      📘 Dispensa Teorica <br> Goniometria e Trigonometria 
+      <span>🎓 per le Superiori</span>
+    </h1>
+    <div class="emoji-big">📐✨😄</div>
+  </div>
+  <p style="font-size: 1.3rem; margin-bottom: 15px; color: #3a281f;">✨ Tutto ciò che devi sapere su angoli, radianti, seni & compagnia... con un sorriso! ✨</p>
+
+  <!-- 1. MISURA DEGLI ANGOLI -->
+  <h2>📏 1. La Misura degli Angoli</h2>
+  <div class="card">
+    <p style="font-size: 1.2rem;">Nel contesto dello studio della goniometria, è fondamentale distinguere tra i due sistemi di misura degli angoli: quello <strong>sessagesimale</strong> e quello in <strong>radianti</strong>. Il primo, di derivazione storica, utilizza il grado (\(1^\circ\)) come unità, definito come la 360-esima parte dell'angolo giro. Ogni grado è suddiviso in 60 primi (\(60'\)) e ogni primo in 60 secondi (\(60''\)).</p>
+  </div>
+
+  <h3>🌀 Definizione di Radiante</h3>
+  <div class="card">
+    <p>Nel Sistema Internazionale (SI), l'unità è il <strong>radiante (rad)</strong>. Data una circonferenza di raggio \(r\), la misura in radianti di un angolo al centro \(\alpha\) è il rapporto tra la lunghezza dell'arco \(l\) sotteso e il raggio \(r\):</p>
+    <div class="formula-box">
+      \[\alpha = \frac{l}{r}\]
+    </div>
+    <p>Poiché \(l\) e \(r\) sono lunghezze, il radiante è un numero reale puro. L'<strong>angolo radiante</strong> (\(\alpha = 1 \text{ rad}\)) è l'angolo al centro che sottende un arco di lunghezza esattamente uguale al raggio.</p>
+  </div>
+
+  <div class="fun-fact">
+    <span style="font-size: 2.5rem;">🧭</span> 
+    <span><strong>Osservazione Didattica:</strong> Un angolo è orientato se è stabilito un ordine tra i suoi lati. Per convenzione, la rotazione in <em>senso antiorario</em> definisce un angolo <strong>positivo</strong>, quella in senso orario un angolo <strong>negativo</strong>.</span>
+  </div>
+
+  <h3>🔄 Conversione e Angoli Notevoli</h3>
+  <p>La relazione fondamentale si basa sull'angolo giro, che sottende l'intera circonferenza (\(l = 2\pi r\)) e misura quindi \(2\pi\) rad. La proporzione di conversione è:</p>
+  <div class="formula-box">
+    \[360^\circ : 2\pi = \alpha^\circ : \alpha_r\]
+  </div>
+  <p>Da cui derivano le formule:</p>
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+    <span style="background: #fee1c7; padding: 12px 24px; border-radius: 50px;">\(\displaystyle \alpha_r = \frac{\alpha^\circ \cdot \pi}{180^\circ}\)</span>
+    <span style="background: #fee1c7; padding: 12px 24px; border-radius: 50px;">\(\displaystyle \alpha^\circ = \frac{\alpha_r \cdot 180^\circ}{\pi}\)</span>
+  </div>
+
+  <!-- Tabella Gradi -> Radianti -->
+  <table>
+    <tr><th>Gradi</th><th>\(0^\circ\)</th><th>\(30^\circ\)</th><th>\(45^\circ\)</th><th>\(60^\circ\)</th><th>\(90^\circ\)</th><th>\(120^\circ\)</th><th>\(135^\circ\)</th><th>\(150^\circ\)</th><th>\(180^\circ\)</th></tr>
+    <tr><td><strong>Radianti</strong></td>
+      <td>\(0\)</td><td>\(\frac{\pi}{6}\)</td><td>\(\frac{\pi}{4}\)</td><td>\(\frac{\pi}{3}\)</td><td>\(\frac{\pi}{2}\)</td>
+      <td>\(\frac{2}{3}\pi\)</td><td>\(\frac{3}{4}\pi\)</td><td>\(\frac{5}{6}\pi\)</td><td>\(\pi\)</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <!-- 2. LUNGHEZZA ARCO E AREA SETTORE -->
+  <h2>📏 2. Lunghezza dell'Arco e Area del Settore Circolare</h2>
+  <div class="columns-2">
+    <div class="card" style="margin:0;">
+      <span class="pill">📐 Formule in radianti</span>
+      <p style="font-size:1.3rem;">• Lunghezza arco: \(l = \alpha \cdot r\)</p>
+      <p style="font-size:1.3rem;">• Area settore: \(\displaystyle \text{Area} = \frac{1}{2} \alpha r^2\)</p>
+    </div>
+    <div class="card" style="margin:0; background: #fbead2;">
+      <span class="pill">✨ Forma alternativa (utile!)</span>
+      <p style="font-size:1.3rem;">\(\displaystyle \text{Area} = \frac{1}{2} l r\)</p>
+      <p>⚠️ <strong>Condizione necessaria</strong>: l'angolo \(\alpha\) deve essere espresso in <u>radianti</u>.</p>
+    </div>
+  </div>
+  <div class="fun-fact" style="margin-top:20px;">
+    <span>🧁</span> Ricorda: l'area del settore è come quella di un triangolo con base \(l\) e altezza \(r\) ... ma solo con i radianti!
+  </div>
+
+  <hr>
+
+  <!-- 3. FUNZIONI GONIOMETRICHE NEI TRIANGOLI RETTANGOLI -->
+  <h2>🔺 3. Funzioni Goniometriche nei Triangoli Rettangoli</h2>
+  <div class="card">
+    <p>In un triangolo rettangolo, per un angolo acuto \(\alpha\):</p>
+    <ul style="font-size:1.2rem; list-style-type:'📌 '; padding-left:30px;">
+      <li><strong>Seno</strong> \(\sin \alpha\): rapporto cateto opposto / ipotenusa</li>
+      <li><strong>Coseno</strong> \(\cos \alpha\): rapporto cateto adiacente / ipotenusa</li>
+      <li><strong>Tangente</strong> \(\tan \alpha\): rapporto cateto opposto / cateto adiacente</li>
+    </ul>
+  </div>
+  <div class="note">
+    <span style="font-size:1.8rem;">⚠️ Attenzione!</span> Poiché in un triangolo rettangolo l'ipotenusa è il lato maggiore, per ogni angolo acuto \(\alpha\) si ha sempre \(0 < \sin \alpha < 1\) e \(0 < \cos \alpha < 1\). La tangente invece può assumere qualsiasi valore reale positivo.
+  </div>
+
+  <h3>📐 Formule di Risoluzione</h3>
+  <div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
+    <span style="background:#ffe1c6; padding:8px 24px; border-radius:40px;">\(a = c \cdot \sin \alpha = c \cdot \cos \beta\)</span>
+    <span style="background:#ffe1c6; padding:8px 24px; border-radius:40px;">\(b = c \cdot \cos \alpha = c \cdot \sin \beta\)</span>
+    <span style="background:#ffe1c6; padding:8px 24px; border-radius:40px;">\(a = b \cdot \tan \alpha\)</span>
+  </div>
+
+  <!-- Tabella valori notevoli sen/cos/tan -->
+  <table>
+    <tr><th>\(\alpha\) (Gradi)</th><th>\(\alpha\) (Radianti)</th><th>\(\sin \alpha\)</th><th>\(\cos \alpha\)</th><th>\(\tan \alpha\)</th></tr>
+    <tr><td>\(30^\circ\)</td><td>\(\pi/6\)</td><td>\(1/2\)</td><td>\(\sqrt{3}/2\)</td><td>\(\sqrt{3}/3\)</td></tr>
+    <tr><td>\(45^\circ\)</td><td>\(\pi/4\)</td><td>\(\sqrt{2}/2\)</td><td>\(\sqrt{2}/2\)</td><td>\(1\)</td></tr>
+    <tr><td>\(60^\circ\)</td><td>\(\pi/3\)</td><td>\(\sqrt{3}/2\)</td><td>\(1/2\)</td><td>\(\sqrt{3}\)</td></tr>
+  </table>
+
+  <hr>
+
+  <!-- 4. CIRCONFERENZA GONIOMETRICA -->
+  <h2>⚪ 4. La Circonferenza Goniometrica e Relazioni Fondamentali</h2>
+  <div class="card">
+    <p>La circonferenza goniometrica ha centro in \(O(0,0)\) e raggio \(r=1\). Ogni angolo \(\alpha\) individua un punto \(B\) sulla circonferenza:</p>
+    <ul style="font-size:1.1rem;">
+      <li>L'ascissa di \(B\) è il coseno: \(x_B = \cos \alpha\).</li>
+      <li>L'ordinata di \(B\) è il seno: \(y_B = \sin \alpha\).</li>
+    </ul>
+    <p>La tangente di \(\alpha\) è l'ordinata del punto \(C\) di intersezione tra il prolungamento del raggio \(OB\) e la retta \(x=1\) (tangente alla circonferenza in \((1,0)\)).</p>
+  </div>
+  
+  <h3>🔗 Relazioni Fondamentali</h3>
+  <div class="formula-box">
+    <p><strong>1. Prima relazione (Pitagora):</strong> \(\sin^2 \alpha + \cos^2 \alpha = 1\)</p>
+    <p><strong>2. Seconda relazione:</strong> \(\tan \alpha = \frac{\sin \alpha}{\cos \alpha}\)  (per \(\cos \alpha \neq 0\))</p>
+    <p><strong>3. Coefficiente angolare:</strong> per una retta \(y = mx\), \(m = \tan \alpha\).</p>
+  </div>
+  <div class="fun-fact">🧮 “Tutta la goniometria è, in ultima analisi, lo sviluppo coerente del Teorema di Pitagora applicato a coordinate circolari.”</div>
+
+  <hr>
+
+  <!-- 5. ANGOLI ASSOCIATI -->
+  <h2>🔄 5. Angoli Associati e Periodicità</h2>
+  <p>Le relazioni degli angoli associati permettono di ricondurre qualsiasi angolo a uno acuto \(\alpha\) nel primo quadrante.</p>
+  
+  <table>
+    <tr><th>Angolo \(\beta\)</th><th>\(\cos \beta\)</th><th>\(\sin \beta\)</th><th>\(\tan \beta\)</th><th>Simmetria</th></tr>
+    <tr><td>\(\pi/2 - \alpha\)</td><td>\(\sin \alpha\)</td><td>\(\cos \alpha\)</td><td>\(1/\tan \alpha\)</td><td>Complementari</td></tr>
+    <tr><td>\(\pi/2 + \alpha\)</td><td>\(-\sin \alpha\)</td><td>\(\cos \alpha\)</td><td>\(-1/\tan \alpha\)</td><td>—</td></tr>
+    <tr><td>\(\pi - \alpha\)</td><td>\(-\cos \alpha\)</td><td>\(\sin \alpha\)</td><td>\(-\tan \alpha\)</td><td>Supplementari</td></tr>
+    <tr><td>\(\pi + \alpha\)</td><td>\(-\cos \alpha\)</td><td>\(-\sin \alpha\)</td><td>\(\tan \alpha\)</td><td>—</td></tr>
+    <tr><td>\(3\pi/2 - \alpha\)</td><td>\(-\sin \alpha\)</td><td>\(-\cos \alpha\)</td><td>\(1/\tan \alpha\)</td><td>—</td></tr>
+    <tr><td>\(3\pi/2 + \alpha\)</td><td>\(\sin \alpha\)</td><td>\(-\cos \alpha\)</td><td>\(-1/\tan \alpha\)</td><td>—</td></tr>
+    <tr><td>\(2\pi - \alpha\) (o \(-\alpha\))</td><td>\(\cos \alpha\)</td><td>\(-\sin \alpha\)</td><td>\(-\tan \alpha\)</td><td>Esplementari</td></tr>
+  </table>
+  <div class="note">
+    <span style="font-size:1.7rem;">⏱️ Angoli > \(2\pi\)?</span> Dividi per \(2\pi\) e prendi il resto! (riduzione al primo giro)
+  </div>
+
+  <hr>
+
+  <!-- 6. GRAFICI DELLE FUNZIONI SINUSOIDALI -->
+  <h2>📈 6. Analisi dei Grafici delle Funzioni Sinusoidali</h2>
+  <div class="columns-2">
+    <div class="card">
+      <h3 style="margin-top:0;">📉 Seno</h3>
+      <p>\(y = \sin x\)<br>Dominio \(\mathbb{R}\); Codominio \([-1,1]\); Periodo \(T=2\pi\). Dispari: \(\sin(-x)=-\sin x\).</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">📈 Coseno</h3>
+      <p>\(y = \cos x\)<br>Dominio \(\mathbb{R}\); Codominio \([-1,1]\); Periodo \(T=2\pi\). Pari: \(\cos(-x)=\cos x\).</p>
+    </div>
+    <div class="card" style="grid-column: span 2;">
+      <h3 style="margin-top:0;">📊 Tangente</h3>
+      <p>\(y = \tan x\)<br>Dominio \(\{x \in \mathbb{R} \mid x \neq \frac{\pi}{2} + k\pi\}\); Codominio \(\mathbb{R}\); Periodo \(T=\pi\). Dispari.</p>
+    </div>
+  </div>
+  
+  <h3>🎛️ Funzione Sinusoidale Generale</h3>
+  <div class="formula-box">
+    \[y = y_c + A \cdot \sin[\omega(x - x_0)]\]
+    <ul style="margin-top:15px;">
+      <li><strong>\(y_c\)</strong> = valore centrale (ordinata media)</li>
+      <li><strong>\(A\)</strong> = ampiezza (|A| massima variazione)</li>
+      <li><strong>\(\omega\)</strong> = pulsazione, \(T = 2\pi/\omega\)</li>
+      <li><strong>\(x_0\)</strong> = sfasamento orizzontale</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 7. FUNZIONI GONIOMETRICHE INVERSE -->
+  <h2>🔄 7. Funzioni Goniometriche Inverse</h2>
+  <div class="card">
+    <p>Per definire le inverse si restringono i domini:</p>
+    <table style="margin-top:10px;">
+      <tr><th>Funzione</th><th>Dominio</th><th>Codominio</th></tr>
+      <tr><td>\(y = \arcsin x\)</td><td>\(x \in [-1,1]\)</td><td>\(y \in [-\pi/2, \pi/2]\)</td></tr>
+      <tr><td>\(y = \arccos x\)</td><td>\(x \in [-1,1]\)</td><td>\(y \in [0, \pi]\)</td></tr>
+      <tr><td>\(y = \arctan x\)</td><td>\(x \in \mathbb{R}\)</td><td>\(y \in ]-\pi/2, \pi/2[\)</td></tr>
+    </table>
+  </div>
+  <div class="fun-fact" style="background:#ffcfaa;">
+    <span>📟⚠️</span> <strong>Nota calcolatrice:</strong> Impostare sempre DEG o RAD. <span style="background:#a13d2f; color:white; padding:5px 12px; border-radius:30px;">MAI usare GRAD!</span> (l'angolo retto misurerebbe 100 e sarebbe un disastro scolastico 😵)
+  </div>
+
+  <hr>
+
+  <!-- NOTE CONCLUSIVE / SEGNI QUADRANTI -->
+  <h2>🧭 Note conclusive per lo studente</h2>
+  <div style="display:flex; align-items:center; gap:15px; flex-wrap:wrap;">
+    <div style="background:#2e5f6b; color:white; padding:18px 25px; border-radius: 50px; font-weight:700; font-size:1.6rem;">
+      🧠 SEGNI PER QUADRANTI
+    </div>
+    <div style="font-size:1.3rem;">
+      I: tutti + &nbsp;&nbsp; II: solo \(\sin\) + &nbsp;&nbsp; III: solo \(\tan\) + &nbsp;&nbsp; IV: solo \(\cos\) +
+    </div>
+  </div>
+  <div class="signature">
+    ✨ Padroneggiare la circonferenza goniometrica = chiave per ogni problema trigonometrico! ✨
+  </div>
+  <div style="margin-top:20px; text-align:center; opacity:0.7;">
+    🎓 Dispensa a cura di un team di insegnanti appassionati – versione "divertente & chiara" 🎓
+  </div>
+</div>
+<!-- fine container -->
+</body>
+</html>
