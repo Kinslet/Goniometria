@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📐 Verifica Goniometria & Trigonometria · Classe IV Classico</title>
+  <!-- Font divertenti ma leggibili -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome per icone spiritose -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- MathJax per LaTeX -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(145deg, #f9f1e0 0%, #f5e9d3 100%);
+      background-attachment: fixed;
+      font-family: 'Quicksand', sans-serif;
+      padding: 2rem 1rem;
+      color: #2e241b;
+      position: relative;
+    }
+    /* pattern divertente a triangolini */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M30 5 L55 50 L5 50 Z" fill="none" stroke="%23d4b48c" stroke-width="0.8" opacity="0.15"/></svg>');
+      background-size: 70px 70px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .paper {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255, 250, 240, 0.92);
+      backdrop-filter: blur(3px);
+      border-radius: 40px 40px 30px 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+      padding: 2.5rem 2.2rem;
+      border: 1px solid #e7cfb0;
+      position: relative;
+      z-index: 2;
+      transition: all 0.2s;
+    }
+    h1, h2, h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      font-size: 2.6rem;
+      color: #3b2b1f;
+      text-shadow: 3px 3px 0 #f3d9b1;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    h1 i {
+      font-size: 2.4rem;
+      color: #b1624b;
+      text-shadow: none;
+    }
+    h2 {
+      font-size: 1.9rem;
+      border-left: 12px solid #d99e7e;
+      padding-left: 20px;
+      margin: 1.8rem 0 1.2rem 0;
+      color: #4e3629;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2 i {
+      font-size: 1.8rem;
+      color: #b87a5e;
+    }
+    h3 {
+      font-size: 1.5rem;
+      color: #5e3e2b;
+      margin: 1.5rem 0 0.8rem 0;
+      font-weight: 600;
+    }
+    .header-student {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: #e8d9c6;
+      padding: 1.2rem 2rem;
+      border-radius: 60px 20px 60px 20px;
+      margin: 25px 0 15px 0;
+      border: 2px dashed #a77b5a;
+      font-weight: 600;
+    }
+    .student-field {
+      font-family: 'Comic Neue', cursive;
+      font-size: 1.3rem;
+    }
+    .student-field span {
+      border-bottom: 3px dotted #7b5a44;
+      min-width: 200px;
+      display: inline-block;
+      margin-left: 10px;
+      padding: 0 10px;
+    }
+    .intro-box {
+      background: #f6efe6;
+      padding: 1.3rem 2rem;
+      border-radius: 30px 10px 30px 10px;
+      border-left: 10px solid #b1624b;
+      font-style: italic;
+      margin-bottom: 25px;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 6px;
+      margin: 20px 0;
+      font-size: 1.05rem;
+    }
+    th {
+      background: #c29a7a;
+      color: #fef7e9;
+      padding: 14px 8px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 20px 20px 8px 8px;
+    }
+    td {
+      background: #faf3e9;
+      padding: 14px 10px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+      vertical-align: top;
+    }
+    .ex-points {
+      font-weight: 700;
+      color: #9c4f2f;
+    }
+    .exercise-block {
+      background: #fffbf5;
+      padding: 1.6rem 2rem;
+      border-radius: 30px 10px 30px 10px;
+      margin: 30px 0;
+      box-shadow: 0 8px 0 #d0b094, 0 10px 20px rgba(0,0,0,0.05);
+      border: 1px solid #e1cbb8;
+    }
+    .draw-area {
+      background: #e9e0d3;
+      border: 4px dashed #a58363;
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.4rem;
+      font-family: 'Comic Neue', cursive;
+      color: #5d4032;
+      box-shadow: inset 0 0 0 2px #f2e3d3, inset 0 8px 12px rgba(0,0,0,0.05);
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .draw-area i {
+      font-size: 3.5rem;
+      color: #9f7256;
+      margin-bottom: 10px;
+    }
+    .solutions-section {
+      background: #dde3d5;
+      padding: 1.8rem 2.2rem;
+      border-radius: 25px 25px 40px 40px;
+      margin-top: 40px;
+      border: 2px solid #7f9a7b;
+      box-shadow: inset 0 0 0 4px #f1f6ec, 0 8px 0 #6d8269;
+    }
+    .solutions-section h2 {
+      border-left-color: #4a6741;
+      color: #253b1f;
+    }
+    .solution-step {
+      background: #f4f9ef;
+      padding: 1.2rem 1.8rem;
+      border-radius: 20px;
+      margin: 20px 0;
+      border-left: 8px solid #7f9a7b;
+    }
+    .teacher-note {
+      margin-top: 30px;
+      background: #fbe9d2;
+      padding: 16px 25px;
+      border-radius: 50px 10px 50px 10px;
+      font-weight: 600;
+      border: 2px solid #cb9e7c;
+      color: #3f2c1c;
+    }
+    .fun-tag {
+      display: inline-block;
+      background: #ffcf9c;
+      padding: 5px 18px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-left: 15px;
+      color: #442b1a;
+    }
+    .btn-fake {
+      background: #b38b6e;
+      color: #fcf3e6;
+      padding: 4px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+    /* decorazioni */
+    .wave-emoji {
+      font-size: 2rem;
+      vertical-align: middle;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: right;
+      font-family: 'Comic Neue', cursive;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="paper">
+  
+  <!-- Intestazione divertente -->
+  <h1>
+    <i class="fas fa-shapes"></i> 
+    Verifica di Matematica: Goniometria e Trigonometria
+    <span class="fun-tag"><i class="fas fa-graduation-cap"></i> Classe IV Classico</span>
+  </h1>
+  
+  <!-- Dati studente -->
+  <div class="header-student">
+    <div class="student-field"><i class="fas fa-user-graduate"></i> Studente: <span>_________________________</span></div>
+    <div class="student-field"><i class="fas fa-users"></i> Classe: <span>_______</span></div>
+    <div class="student-field"><i class="far fa-calendar-alt"></i> Data: <span>______________</span></div>
+  </div>
+
+  <!-- Introduzione (mantiene lo stile "protocollo" ma con ironia leggera) -->
+  <div class="intro-box">
+    <i class="fas fa-scroll" style="margin-right: 10px;"></i>
+    <strong>Introduzione alla Prova</strong> – Il presente protocollo di verifica si prefigge di valutare la competenza nel dominio della goniometria e della trigonometria, discipline che traggono la propria ragion d'essere dall'etimo greco <i>trígonon</i> (triangolo) e <i>métron</i> (misura). L'indagine matematica qui proposta non si limita alla risoluzione di algoritmi di calcolo, ma richiede l'astrazione necessaria per interpretare i fenomeni ciclici e la capacità di misurazione indiretta, pilastri fondamentali del pensiero scientifico classico e moderno.<br>
+    <span style="display:block; margin-top:10px;"><i class="fas fa-check-double"></i> I criteri di valutazione sono improntati al massimo rigore formale: sarà oggetto di scrutinio la precisione dei calcoli, l'uso corretto della notazione in \(\text{LaTeX}\), la coerenza dei passaggi logici e la proprietà del linguaggio matematico. Si raccomanda un'esposizione ordinata, atta a riflettere la struttura deduttiva del ragionamento.</span>
+  </div>
+
+  <!-- Tabella punteggi -->
+  <table>
+    <thead>
+      <tr>
+        <th>Esercizio</th>
+        <th>Descrizione</th>
+        <th>Punteggio massimo</th>
+        <th>Punteggio conseguito</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Analisi di Archi, Angoli e Settori Circolari</td><td class="ex-points">36 punti</td><td></td></tr>
+      <tr><td>2</td><td>Risoluzione del Triangolo Rettangolo</td><td class="ex-points">24 punti</td><td></td></tr>
+      <tr><td>3</td><td>Modellizzazione Trigonometrica in Ambito Reale</td><td class="ex-points">20 punti</td><td></td></tr>
+      <tr><td>4</td><td>Analisi e Sintesi delle Funzioni Sinusoidali</td><td class="ex-points">20 punti</td><td></td></tr>
+      <tr style="font-weight: bold; background: #f0d5bd;"><td colspan="2" style="text-align:right;">Totale</td><td>100 punti</td><td></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top: -5px;"><i class="fas fa-lightbulb"></i> La padronanza della teoria degli archi e delle funzioni periodiche costituisce il viatico intellettuale per la risoluzione dei problemi complessi che seguono. Si proceda con solerzia e rigore.</p>
+
+  <!-- ESERCIZIO 1 -->
+  <div class="exercise-block">
+    <h2><i class="fas fa-circle-notch"></i> Esercizio 1: Analisi di Archi, Angoli e Settori Circolari <span style="font-size:1.2rem;">(36 punti)</span></h2>
+    <p>La goniometria trae origine dalla necessità di stabilire una corrispondenza biunivoca tra la misura lineare dell'arco e l'ampiezza dell'angolo al centro. Il passaggio dal sistema sessagesimale al radiante — misura intrinseca definita dal rapporto tra arco e raggio — rappresenta l'astrazione fondamentale per il trattamento analitico delle funzioni circolari.</p>
+    
+    <p><strong>1.a (12 pt):</strong> Si determini l'ampiezza, espressa sia in radianti che in gradi sessagesimali, di un angolo al centro di una circonferenza avente raggio \(r = 15 \text{ cm}\), sapendo che esso sottende un arco di lunghezza \(l = 45 \text{ cm}\).</p>
+    
+    <p><strong>1.b (12 pt):</strong> Si considerino due archi, \(l_1\) e \(l_2\), insistenti su due circonferenze di raggi rispettivamente \(r_1 = 5 \text{ cm}\) e \(r_2 = 10 \text{ cm}\). Sapendo che entrambi gli archi sottendono il medesimo angolo al centro e che la misura di \(l_1\) è pari a \(8 \text{ cm}\), si calcoli la lunghezza dell'arco \(l_2\).</p>
+    
+    <p><strong>1.c (12 pt):</strong> Un settore circolare è caratterizzato da un'area pari a \(25\pi \text{ cm}^2\). Sapendo che l'angolo al centro corrispondente ha un'ampiezza di \(\frac{\pi}{2} \text{ rad}\), si determinino la misura del raggio \(r\) della circonferenza e la lunghezza dell'arco \(l\) corrispondente.</p>
+    <p style="margin-top:10px;"><i class="fas fa-dice-d6"></i> La comprensione geometrica della circonferenza è il presupposto logico ineludibile.</p>
+  </div>
+
+  <!-- ESERCIZIO 2 -->
+  <div class="exercise-block">
+    <h2><i class="fas fa-triangle"></i> Esercizio 2: Risoluzione del Triangolo Rettangolo <span style="font-size:1.2rem;">(24 punti)</span></h2>
+    <p>L'applicazione dei teoremi fondamentali sui triangoli rettangoli rappresenta il fulcro della trigonometria euclidea. Tali strumenti consentono di operare quella sintesi tra segmenti e angoli che trova applicazione immediata sia nella scomposizione vettoriale in ambito fisico, sia nella determinazione di distanze inaccessibili.</p>
+    <p>In un triangolo rettangolo, l'ipotenusa ha una lunghezza \(i = 150 \text{ cm}\) e uno degli angoli acuti ha un'ampiezza \(\alpha = 35^\circ\). Lo studente è chiamato a:</p>
+    <ol style="margin-left: 30px; line-height: 1.8;">
+      <li>Determinare la lunghezza dei due cateti, esplicitando l'uso delle funzioni \(\sin\) e \(\cos\).</li>
+      <li>Calcolare l'ampiezza del secondo angolo acuto \(\beta\).</li>
+    </ol>
+    <p><i class="fas fa-vector-square"></i> L'astrazione del calcolo trigonometrico è lo strumento che trasforma una configurazione geometrica statica in un sistema di relazioni metriche risolvibili.</p>
+  </div>
+
+  <!-- ESERCIZIO 3 -->
+  <div class="exercise-block">
+    <h2><i class="fas fa-binoculars"></i> Esercizio 3: Modellizzazione Trigonometrica in Ambito Reale <span style="font-size:1.2rem;">(20 punti)</span></h2>
+    <p>In ambiti quali la topografia e l'ingegneria civile, l'impiego del clinometro permette la traduzione di rilievi angolari in misure lineari. La capacità di modellizzare un problema reale attraverso lo schema del triangolo rettangolo è prova di maturità scientifica.</p>
+    <p>Un osservatore intende calcolare la propria distanza dalla base di una torre di controllo. Egli, posizionato a una distanza incognita, utilizza un clinometro posto a un'altezza di \(1,6 \text{ m}\) dal suolo (altezza occhi). Lo strumento rileva un angolo di elevazione di \(40^\circ\) rispetto alla sommità della torre. Nota l'altezza totale della torre, pari a \(25 \text{ m}\), si determini la distanza orizzontale \(d\) tra l'osservatore e la base della struttura.</p>
+    <p><strong>È richiesta obbligatoriamente la rappresentazione grafica del modello geometrico sottostante</strong> (triangoli, segmenti e angoli coinvolti).</p>
+    
+    <!-- Spazio disegno divertente -->
+    <div class="draw-area">
+      <i class="fas fa-pencil-ruler"></i>
+      <span style="font-size:1.6rem; font-weight:600;">✏️ Zona di disegno geometrico</span>
+      <span style="margin-top:8px;">(Rappresenta il triangolo con clinometro, torre e distanza)</span>
+      <div style="margin-top:20px; font-size:1rem; opacity:0.7;">
+        <i class="fas fa-arrow-up"></i> torre 25m &nbsp;&nbsp;|&nbsp;&nbsp; 👀 occhi 1.6m &nbsp;&nbsp;|&nbsp;&nbsp; 📐 40°
+      </div>
+    </div>
+    <p style="margin-top:5px;"><i class="fas fa-wave-square"></i> Dalla staticità del triangolo, lo sguardo matematico si volge ora alla dinamicità delle onde periodiche.</p>
+  </div>
+
+  <!-- ESERCIZIO 4 -->
+  <div class="exercise-block">
+    <h2><i class="fas fa-chart-line"></i> Esercizio 4: Analisi delle Funzioni Sinusoidali <span style="font-size:1.2rem;">(20 punti)</span></h2>
+    <p>Le funzioni goniometriche costituiscono l'alfabeto fondamentale per la descrizione dei moti ondulatori e dei fenomeni fisici periodici. La capacità di tradurre una descrizione fenomenologica in un modello analitico è essenziale per la fisica moderna.</p>
+    <p>Si consideri una funzione d'onda sinusoidale che descrive un fenomeno periodico nel tempo o nello spazio. La funzione ha le seguenti caratteristiche:</p>
+    <ul style="margin-left: 30px;">
+      <li>Il grafico interseca l'origine degli assi cartesiani \((0,0)\).</li>
+      <li>Presenta un'ampiezza di \(2 \text{ m}\) rispetto alla posizione di equilibrio.</li>
+      <li>Completa un ciclo completo ogni \(4 \text{ m}\) sull'asse delle ascisse.</li>
+    </ul>
+    <p>Lo studente stabilisca un opportuno sistema di riferimento e scriva l'equazione della funzione nella forma \(y = A \sin(kx)\), avendo cura di derivare e specificare i valori dell'ampiezza \(A\) e della pulsazione (o numero d'onda) \(k\).</p>
+    <p><i class="fas fa-microchip"></i> Si rifletta, in conclusione, sulla necessaria coerenza tra il rigore della rappresentazione analitica e la realtà del fenomeno fisico osservato.</p>
+  </div>
+
+  <!-- SEZIONE SOLUZIONI E CORRETTORE (visibile, stile "correttore") -->
+  <div class="solutions-section">
+    <h2><i class="fas fa-check-circle" style="color:#2d5e2a;"></i> Sezione Soluzioni e Correttore Dettagliato</h2>
+    
+    <div class="solution-step">
+      <h3><i class="fas fa-calculator"></i> Risoluzione Esercizio 1</h3>
+      <p><strong>1.a</strong> La misura in radianti: \(\alpha = \frac{l}{r} = \frac{45 \text{ cm}}{15 \text{ cm}} = 3 \text{ rad}\). <br>
+      Conversione in gradi: \(\alpha^\circ = \alpha \cdot \frac{180^\circ}{\pi} = 3 \cdot \frac{180^\circ}{\pi} \approx 171,89^\circ\) (ovvero \(171^\circ 53' 14''\)).</p>
+      <p><strong>1.b</strong> Uguaglianza angoli: \(\frac{l_1}{r_1} = \frac{l_2}{r_2} \implies l_2 = \frac{8 \cdot 10}{5} = 16 \text{ cm}\).</p>
+      <p><strong>1.c</strong> Area settore \(S = \frac{1}{2}\alpha r^2\): \(25\pi = \frac{1}{2}\cdot\frac{\pi}{2} r^2 \Rightarrow r^2=100 \Rightarrow r=10\text{ cm}\). <br>
+      Arco \(l = \alpha r = \frac{\pi}{2}\cdot 10 = 5\pi \text{ cm}\).</p>
+    </div>
+    
+    <div class="solution-step">
+      <h3><i class="fas fa-ruler-combined"></i> Risoluzione Esercizio 2</h3>
+      <p>Dati: \(i = 150\text{ cm}\), \(\alpha = 35^\circ\). <br>
+      \(\beta = 90^\circ - 35^\circ = 55^\circ\). <br>
+      Cateto opposto: \(c_1 = i \sin 35^\circ = 150 \cdot 0,5736 \approx 86,04\text{ cm}\). <br>
+      Cateto adiacente: \(c_2 = i \cos 35^\circ = 150 \cdot 0,8192 \approx 122,88\text{ cm}\).</p>
+    </div>
+    
+    <div class="solution-step">
+      <h3><i class="fas fa-draw-polygon"></i> Risoluzione Esercizio 3</h3>
+      <p>Altezza efficace: \(H_{\Delta} = 25 - 1,6 = 23,4\text{ m}\). <br>
+      \(\tan 40^\circ = \frac{H_{\Delta}}{d} \implies d = \frac{23,4}{\tan 40^\circ} \approx \frac{23,4}{0,8391} \approx 27,89\text{ m}\).</p>
+      <p><i class="far fa-smile"></i> Rappresentazione grafica: triangolo rettangolo con cateto verticale \(23,4\) m e angolo di \(40^\circ\) alla base.</p>
+    </div>
+    
+    <div class="solution-step">
+      <h3><i class="fas fa-sine-wave"></i> Risoluzione Esercizio 4</h3>
+      <p>Ampiezza \(A = 2\text{ m}\). Periodo spaziale \(T = 4\text{ m}\). <br>
+      Pulsazione \(k = \frac{2\pi}{T} = \frac{2\pi}{4} = \frac{\pi}{2}\text{ rad/m}\). <br>
+      Equazione: \(y = 2 \sin\left(\frac{\pi}{2}x\right)\).</p>
+    </div>
+    
+    <div class="teacher-note">
+      <i class="fas fa-chalkboard-teacher"></i> <strong>Nota del Docente:</strong> La verifica è stata calibrata per garantire la consistenza dei dati numerici e l'univocità delle soluzioni. Ogni discrepanza significativa nelle approssimazioni deve essere giustificata dal candidato. <br>
+      <span style="display:inline-block; margin-top:8px;">✨ <em>"La trigonometria non è un'opinione, ma una questione di radianti!"</em> ✨</span>
+    </div>
+  </div>
+  
+  <!-- Footer giocoso -->
+  <footer>
+    <i class="fas fa-infinity"></i> Buon lavoro e che la forza dei radianti sia con te! 
+    <i class="fas fa-smile-wink"></i>
+  </footer>
+</div>
+<!-- Piccola firma invisibile -->
+</body>
+</html>
