@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida risolutiva: Goniometria e Trigonometria</title>
+    <!-- MathJax per il rendering LaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #f5f7fa;
+            color: #1e2b3c;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid #e9edf4;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0b2b4a;
+            border-left: 6px solid #3a7ca5;
+            padding-left: 1.4rem;
+            margin-top: 0.2rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #1e4a6b;
+            margin: 2.2rem 0 1.2rem 0;
+            border-bottom: 2px solid #d0deeb;
+            padding-bottom: 0.4rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c5a7a;
+            margin: 1.6rem 0 0.8rem 0;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        .math-block {
+            margin: 1.5rem 0;
+            text-align: center;
+            overflow-x: auto;
+            padding: 0.2rem 0;
+        }
+        .equation-highlight {
+            background: #f0f5fb;
+            padding: 0.8rem 1.2rem;
+            border-radius: 16px;
+            margin: 1.2rem 0;
+            border-left: 4px solid #3a7ca5;
+        }
+        ul, ol {
+            margin: 1rem 0 1.2rem 2rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0 1.5rem;
+            font-size: 1rem;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+        th {
+            background: #1e4a6b;
+            color: white;
+            font-weight: 600;
+            padding: 14px 12px;
+            text-align: left;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover {
+            background: #f8fafd;
+        }
+        .badge {
+            background: #e6eff9;
+            color: #1e4a6b;
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .note {
+            font-style: italic;
+            color: #3f5e75;
+            background: #ecf3fa;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            margin: 1.8rem 0;
+            border: 1px dashed #7fa1c3;
+        }
+        strong {
+            color: #0b2b4a;
+        }
+        /* Stile per i passaggi risolutivi */
+        .step {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 0.2rem 0;
+        }
+        @media (max-width: 650px) {
+            .container {
+                padding: 1.5rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Guida Risolutiva: Esercitazione di Goniometria e Trigonometria</h1>
+
+    <!-- 1. Introduzione -->
+    <h2>1. Introduzione alla Prova e Analisi dei Fondamenti</h2>
+    <p>
+        La goniometria e la trigonometria non sono semplici branche del calcolo, ma rappresentano l'architettura logica che ci permette di "misurare l'indiretto". 
+        Attraverso lo studio delle relazioni tra angoli e segmenti, siamo in grado di determinare distanze inaccessibili e altezze vertiginose partendo da pochi dati osservabili. 
+        Questa prova è strutturata per testare la padronanza delle formule circolari e la loro capacità di tradursi in strumenti operativi per la risoluzione di problemi reali.
+    </p>
+    <p>
+        In questo percorso, il passaggio dal sistema sessagesimale (gradi) a quello radiante è cruciale. Mentre il grado è una convenzione storica, il radiante è il linguaggio naturale della matematica superiore: esso esprime l'angolo come rapporto puro tra la lunghezza dell'arco e il raggio, eliminando l'arbitrarietà e rendendo le funzioni goniometriche analiticamente trasparenti. Comprendere questa eleganza è essenziale per affrontare le proprietà fondamentali degli archi e dei settori circolari.
+    </p>
+
+    <!-- 2. Esercizio 1 -->
+    <h2>2. Risoluzione Esercizio 1: Archi, Angoli e Settori Circolari</h2>
+    <p>
+        La comprensione della circonferenza risiede nel legame intrinseco tra la lunghezza di un arco, il suo raggio e l'ampiezza dell'angolo al centro. 
+        Tale relazione è espressa dalla formula fondamentale:
+    </p>
+    <div class="math-block">
+        \[ s = r \cdot \alpha_{\text{rad}} \]
+    </div>
+
+    <h3>Punto a: Conversione e calcolo dell'angolo</h3>
+    <p>
+        Dati un arco \( s = 24 \text{ cm} \) e un raggio \( r = 10 \text{ cm} \), determiniamo l'angolo in radianti:
+    </p>
+    <div class="math-block">
+        \[ \alpha_{\text{rad}} = \frac{s}{r} = \frac{24}{10} = 2,4 \text{ rad} \]
+    </div>
+    <p>
+        Per riportare questa misura nel sistema sessagesimale, applichiamo la proporzione \( \alpha^\circ : 180^\circ = \alpha_{\text{rad}} : \pi \):
+    </p>
+    <div class="math-block">
+        \[ \alpha^\circ = \frac{2,4 \cdot 180^\circ}{\pi} \approx 137,51^\circ \]
+    </div>
+
+    <h3>Punto b: Proporzionalità tra archi</h3>
+    <p>
+        In geometria euclidea, settori circolari che insistono sullo stesso angolo sono figure simili. Pertanto, la lunghezza dell'arco è in proporzionalità diretta con il raggio. 
+        Avendo \( r_1 = 3 \text{ cm} \), \( r_2 = 4,5 \text{ cm} \) e \( l_1 = 5,5 \text{ cm} \), ricaviamo \( l_2 \):
+    </p>
+    <div class="math-block">
+        \[ \frac{l_1}{r_1} = \frac{l_2}{r_2} \implies l_2 = \frac{5,5 \cdot 4,5}{3} = 5,5 \cdot 1,5 = 8,25 \text{ cm} \]
+    </div>
+
+    <h3>Punto c: Analisi del settore circolare</h3>
+    <p>
+        Data l'area del settore \( A = 40\pi \text{ cm}^2 \) e l'angolo \( \alpha = 80^\circ \), procediamo alla conversione obbligatoria in radianti:
+    </p>
+    <div class="math-block">
+        \[ \alpha_{\text{rad}} = \frac{80^\circ \cdot \pi}{180^\circ} = \frac{4}{9}\pi \text{ rad} \]
+    </div>
+    <p>
+        Utilizzando la formula dell'area \( A = \frac{1}{2} \alpha r^2 \), isoliamo il quadrato del raggio:
+    </p>
+    <div class="math-block">
+        \[ r^2 = \frac{2A}{\alpha} = \frac{2 \cdot 40\pi}{\frac{4}{9}\pi} = 80 \cdot \frac{9}{4} = 180 \]
+    </div>
+    <p>
+        Estraendo la radice quadrata, consideriamo solo il valore positivo \( r > 0 \), trattandosi di una grandezza geometrica fisica:
+    </p>
+    <div class="math-block">
+        \[ r = \sqrt{180} = 6\sqrt{5} \approx 13,42 \text{ cm} \]
+    </div>
+    <p>
+        Infine, la misura dell'arco definito dal settore (richiesta dal problema) è data da:
+    </p>
+    <div class="math-block">
+        \[ l = \alpha \cdot r = \frac{4}{9}\pi \cdot 6\sqrt{5} = \frac{8\sqrt{5}}{3}\pi \approx 18,73 \text{ cm} \]
+    </div>
+    <p class="note">
+        Evolvendo dalla fluidità della curva alla stabilità dei poligoni, osserviamo come questi concetti si applichino alla geometria del triangolo.
+    </p>
+
+    <!-- 3. Esercizio 2 -->
+    <h2>3. Risoluzione Esercizio 2: Trigonometria del Triangolo Rettangolo</h2>
+    <p>
+        Nel triangolo rettangolo, le funzioni goniometriche agiscono come "operatori di scala". La conoscenza di un solo angolo acuto e dell'ipotenusa è sufficiente per determinare univocamente tutti gli altri elementi della figura, grazie ai rapporti costanti definiti da seno e coseno.
+    </p>
+    <p>Dati \( c = 120 \text{ cm} \) e \( \alpha = 25^\circ \):</p>
+    <ul>
+        <li>Il cateto opposto \(a\) si calcola come:  
+            \[ a = c \cdot \sin(25^\circ) = 120 \cdot 0,4226 \approx 50,71 \text{ cm} \]
+        </li>
+        <li>Il cateto adiacente \(b\) si calcola come:  
+            \[ b = c \cdot \cos(25^\circ) = 120 \cdot 0,9063 \approx 108,76 \text{ cm} \]
+        </li>
+    </ul>
+    <p>
+        L'ampiezza dell'altro angolo acuto \( \beta \) si ottiene per differenza, sapendo che gli angoli acuti di un triangolo rettangolo sono complementari:
+    </p>
+    <div class="math-block">
+        \[ \beta = 90^\circ - 25^\circ = 65^\circ \]
+    </div>
+    <p>
+        Queste competenze astratte si trasformano in strumenti operativi per l'analisi del territorio, come dimostra il problema del clinometro.
+    </p>
+
+    <!-- 4. Esercizio 3 -->
+    <h2>4. Risoluzione Esercizio 3: Applicazione Reale - Il Problema del Clinometro</h2>
+    <p>
+        La modellizzazione geometrica permette di risolvere problemi di misurazione ad altezza d'uomo. Il clinometro rileva l'angolo di elevazione rispetto all'orizzontale dell'occhio dell'osservatore, creando un triangolo rettangolo virtuale.
+    </p>
+    <ol>
+        <li><strong>Analisi dei dati:</strong> L'altezza totale dell'albero è \( 18,4 \text{ m} \). Poiché il clinometro si trova a \( 1,6 \text{ m} \) dal suolo, il cateto opposto del nostro triangolo (\(H_{\text{tri}}\)) sarà:  
+            \[ H_{\text{tri}} = 18,4 \text{ m} - 1,6 \text{ m} = 16,8 \text{ m} \]
+        </li>
+        <li><strong>Scelta della funzione:</strong> Dobbiamo relazionare il cateto opposto (altezza nota) con il cateto adiacente (distanza \(AB\) incognita). La funzione goniometrica che lega questi due elementi è, per definizione, la tangente:  
+            \[ \tan(40^\circ) = \frac{\text{cateto opposto}}{\text{cateto adiacente}} = \frac{16,8}{AB} \]
+        </li>
+        <li><strong>Risoluzione:</strong>  
+            \[ AB = \frac{16,8}{\tan(40^\circ)} \approx \frac{16,8}{0,8391} \approx 20,02 \text{ m} \]
+        </li>
+    </ol>
+    <p>
+        Evolvendo dalla staticità del triangolo alla dinamica delle oscillazioni, passiamo ora all'analisi dei fenomeni periodici.
+    </p>
+
+    <!-- 5. Esercizio 4 -->
+    <h2>5. Risoluzione Esercizio 4: Analisi e Modellizzazione dell'Onda Sinusoidale</h2>
+    <p>
+        Le funzioni sinusoidali sono il pilastro matematico per descrivere i fenomeni ciclici naturali. Un'onda marina può essere interpretata graficamente per estrarre i parametri di un'equazione in forma standard \( y = A \sin(\omega x + \phi) + k \).
+    </p>
+    <p>Analizzando il grafico fornito (1 quadretto = \(1 \text{ m}\)):</p>
+    <ul>
+        <li><strong>Traslazione Verticale (\(k\)):</strong> L'asse mediano dell'oscillazione si trova a metà tra il valore massimo (\(y=3\)) e il minimo (\(y=1\)). Dunque, \( k = 2 \text{ m} \).</li>
+        <li><strong>Ampiezza (\(A\)):</strong> Rappresenta lo scostamento massimo dall'asse mediano. L'onda sale di \(1 \text{ m}\) sopra \(k\). Dunque, \( A = 1 \text{ m} \).</li>
+        <li><strong>Periodo (\(T\)):</strong> La distanza orizzontale tra due creste successive è di 8 quadretti. Dunque, \( T = 8 \text{ m} \).</li>
+        <li><strong>Pulsazione (\(\omega\)):</strong> Si ricava dal rapporto tra l'angolo giro e il periodo:  
+            \[ \omega = \frac{2\pi}{T} = \frac{2\pi}{8} = \frac{\pi}{4} \text{ rad/m} \]
+        </li>
+    </ul>
+    <p>
+        <strong>Modellizzazione:</strong> Poiché il grafico inizia a \(x=0\) intersecando l'asse mediano in fase crescente, la funzione seno senza sfasamento (\(\phi = 0\)) rappresenta il modello più diretto ed economico:
+    </p>
+    <div class="equation-highlight">
+        \[ y = \sin\left(\frac{\pi}{4}x\right) + 2 \]
+    </div>
+
+    <!-- 6. Sintesi -->
+    <h2>6. Sintesi dei Risultati e Autovalutazione</h2>
+    <p>
+        Il percorso affrontato dimostra la coerenza interna della materia: dalla misura di un semplice arco alla descrizione di un'onda complessa.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Esercizio</th>
+                <th>Parametro Calcolato</th>
+                <th>Valore Numerico</th>
+                <th>Unità</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1a</td><td>Angolo al centro (\(\alpha\))</td><td>\(2,4\) (o \(\approx 137,51^\circ\))</td><td>rad / gradi</td></tr>
+            <tr><td>1b</td><td>Lunghezza arco (\(l_2\))</td><td>\(8,25\)</td><td>cm</td></tr>
+            <tr><td>1c</td><td>Raggio (\(r\))</td><td>\(13,42\)</td><td>cm</td></tr>
+            <tr><td>1c</td><td>Lunghezza arco (\(l\))</td><td>\(18,73\)</td><td>cm</td></tr>
+            <tr><td>2</td><td>Cateti (\(a; b\))</td><td>\(50,71; 108,76\)</td><td>cm</td></tr>
+            <tr><td>3</td><td>Distanza (\(AB\))</td><td>\(20,02\)</td><td>m</td></tr>
+            <tr><td>4</td><td>Equazione dell'onda</td><td>\(y = \sin\left(\frac{\pi}{4}x\right) + 2\)</td><td>—</td></tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 2rem; font-size: 1.05rem; background: #eef3f9; padding: 1.4rem 2rem; border-radius: 30px;">
+        Cari studenti, vi invito a considerare questi risultati non come punti di arrivo, ma come conferme di un processo logico. 
+        La padronanza della tecnica è fondamentale, ma la vera sapienza risiede nel saper scorgere l'armonia geometrica che sottende la realtà fisica. 
+        Rivoltate i passaggi, interrogate le formule e fate vostro il rigore del metodo.
+    </p>
+</div>
+<!-- Un piccolo margine finale per respiro -->
+<div style="height: 1.5rem;"></div>
+</body>
+</html>
